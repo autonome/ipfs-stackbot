@@ -12,10 +12,14 @@ const feedToIRC = require('feed-to-irc-bot');
 // StackOverflow tags the bot will msg about
 let tags = ['ipfs'];
 
+/*
 // StackOverflow RSS feed for tags
 let feedURL =
   'https://stackoverflow.com/feeds/tag?sort=newest&tagnames='
   + encodeURIComponent(tags.join(' or '));
+*/
+
+let feedURL = 'https://infinite-rss.glitch.me?itemCount=1';
 
 // Bot config
 let botConfig = {
@@ -44,14 +48,14 @@ let botConfig = {
 
   // How often to check feeds, in minutes.
   // Defaults to once an hour.
-  feedUpdateIntervalMins: 60,
+  feedUpdateIntervalMins: 1, //60,
 
   // How often to msg the IRC channel, in seconds.
   // Defaults to every 10 seconds
   msgSendIntervalSecs: 10,
 
   // Message from bot when joining a channel
-  joinMessage: "Hi! I'll notify you about new questions on StackOverflow about the tags I'm configured with.",
+  joinMessage: "",
 
   // Message from bot prefixing a new SO question
   itemMessagePrefix: "New question on StackOverflow: ",
@@ -77,3 +81,19 @@ Object.keys(botConfig).forEach(key => {
 });
 
 feedToIRC(botConfig);
+
+// Pingable page
+var express = require('express');
+var app = express();
+app.get("/", function (request, response) {
+  response.sendFile(__dirname + '/views/index.html');
+});
+var listener = app.listen(process.env.PORT, function () {
+  console.log('Your app is listening on port ' + listener.address().port);
+});
+
+// Keepy uppy
+const http = require('http');
+setInterval(() => {
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+}, 280000);
