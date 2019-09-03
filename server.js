@@ -12,14 +12,10 @@ const feedToIRC = require('feed-to-irc-bot');
 // StackOverflow tags the bot will msg about
 let tags = ['ipfs'];
 
-/*
 // StackOverflow RSS feed for tags
 let feedURL =
   'https://stackoverflow.com/feeds/tag?sort=newest&tagnames='
   + encodeURIComponent(tags.join(' or '));
-*/
-
-let feedURL = 'https://infinite-rss.glitch.me?itemCount=1';
 
 // Bot config
 let botConfig = {
@@ -48,17 +44,17 @@ let botConfig = {
 
   // How often to check feeds, in minutes.
   // Defaults to once an hour.
-  feedUpdateIntervalMins: 1, //60,
+  feedUpdateIntervalMins: 60,
 
   // How often to msg the IRC channel, in seconds.
   // Defaults to every 10 seconds
   msgSendIntervalSecs: 10,
 
   // Message from bot when joining a channel
-  joinMessage: "",
+  joinMessage: "@dietricha I went down again",
 
   // Message from bot prefixing a new SO question
-  itemMessagePrefix: "New question on StackOverflow: ",
+  itemMessagePrefix: "@dietricha New question on StackOverflow: ",
 
   // If someone speaks to the bot in the channel like 'nick: '
   aboutMessage: 'I was set up by dietricha, and my source code is at https://github.com/autonome/ipfs-stackbot',

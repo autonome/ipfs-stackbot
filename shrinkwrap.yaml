@@ -1,6 +1,6 @@
 dependencies:
   express: 4.16.4
-  feed-to-irc-bot: 1.0.1
+  feed-to-irc-bot: 1.0.3
   feedparser: 2.2.9
   irc: 0.5.2
   request: 2.88.0
@@ -244,14 +244,14 @@ packages:
     dev: false
     resolution:
       integrity: sha1-1RQsDK7msRifh9OnYREGT4bIu/I=
-  /feed-to-irc-bot/1.0.1:
+  /feed-to-irc-bot/1.0.3:
     dependencies:
       feedparser: 2.2.9
       irc: 0.5.2
       request: 2.88.0
     dev: false
     resolution:
-      integrity: sha512-WPS81TRQzsyjNYBbMEGvFX+/sDchZNy4vpvyAhaHo15MDLyvndVKUSL5h86AJmcK89JzM57LrlmiOLaipizf/Q==
+      integrity: sha512-CKHD3DTAP0WxKc5wJjTMHele+WG+LJHj7eBhvOdCCkrzKX+vxtAXktjsooG72/dLvfMFixwgL9g6kXQaGfS1lA==
   /feedparser/2.2.9:
     dependencies:
       addressparser: 1.0.1
@@ -813,7 +813,7 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   express: ^4.16.4
-  feed-to-irc-bot: ^1.0.1
+  feed-to-irc-bot: ^1.0.3
   feedparser: ^2.2.9
   irc: ^0.5.2
   request: ^2.88.0
